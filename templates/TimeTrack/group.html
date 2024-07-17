@@ -1,0 +1,18 @@
+{% extends 'TimeTrack/base.html' %}
+
+{% block content %}
+	<ul>
+        {% for each in group %}
+        	<li>{{ each }}</li>\
+            <ul>
+                {% for todo in each.todo_set.all %}
+                	<li>{{ todo }}</li>
+                {% empty %}
+                	<p>No Groups have been added yet. </p>
+                {% endfor %}
+            </ul>
+        {% empty %}
+        	<p>No Groups have been added yet. </p>
+        {% endfor %}
+    </ul>
+{% endblock %}
