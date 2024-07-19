@@ -1,0 +1,10 @@
+{% extends 'TimeTrack/base.html' %}
+
+{% block content %}
+	<h2>Add New Group</h2>
+    <form action="{% url 'TimeTrack:new_group' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button name="submit">Add Group</button>
+    </form>
+{% endblock %}

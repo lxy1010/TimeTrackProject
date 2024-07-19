@@ -1,0 +1,10 @@
+{% extends 'TimeTrack/base.html' %}
+
+{% block content %}
+	<h2>Add New Todo</h2>
+    <form action="{% url 'TimeTrack:new_todo' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button name="submit">Add Todo</button>
+    </form>
+{% endblock %}

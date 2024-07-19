@@ -1,0 +1,15 @@
+{% extends 'TimeTrack/base.html' %}
+
+{% block content %}
+	{% if form.error %}
+        <p>You Username and Password didn't Match</p>
+	{% endif %} 
+    
+    <form method="post" action="{% url 'registration:login' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        
+        <button name="submit">Login</button>
+        <input type="hidden" name="next" value="{% url 'TimeTrack:index' %}">
+    </form>
+{% endblock %}
