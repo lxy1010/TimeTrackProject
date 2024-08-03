@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from django.http import Http404
+from django.http import Http404, JsonResponse
+from django.views.decorators.http import require_http_methods
 
 from TimeTrack.forms import GroupForm, TodoForm
-from TimeTrack.models import Group
+from TimeTrack.models import Group, Todo
 
 
 # Create your views here.
@@ -15,7 +16,7 @@ def index(request):
 
 @login_required
 def group(request):
-    group = Group.objects.filter(owner=request.user).order_by('todo__importance')
+    group = Group.objects.filter(owner=request.user)
     context = {'group': group}
     return render(request, 'TimeTrack/group.html', context=context)
 
@@ -49,3 +50,21 @@ def new_todo(request):
 
     context = {'form': form}
     return render(request, 'TimeTrack/newTodo.html', context=context)
+
+
+def delete_group(request, group_id):
+    if request.method != 'POST':
+        return redirect('TimeTrack:group')
+    else:
+        group = Group.objects.get(id=group_id)
+        group.delete()
+        return redirect('TimeTrack:group')
+
+
+def delete_todo(request, todo_id):
+    if request.method != 'POST':
+        return redirect('TimeTrack:group')
+    else:
+        todo = Todo.objects.get(id=todo_id)
+        todo.delete()
+        return redirect('TimeTrack:group')

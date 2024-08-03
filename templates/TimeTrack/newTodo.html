@@ -1,10 +1,69 @@
 {% extends 'TimeTrack/base.html' %}
 
 {% block content %}
-	<h2>Add New Todo</h2>
-    <form action="{% url 'TimeTrack:new_todo' %}" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button name="submit">Add Todo</button>
-    </form>
+
+
+    <div class="container mt-5">
+        <h2>Add New Todo</h2>
+        <form method="post" class="px-4 py-3" action="{% url 'TimeTrack:new_todo' %}">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label for="group_id" class="form-label">Group</label>
+                <select class="form-select" name="group" required id="group_id">
+                    {% for group in form.group %}
+                        {{ group }}
+                    {% endfor %}
+                </select>
+                <div class="invalid-feedback">
+                    {% for error in form.group.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="todoTitle" class="form-label">Title</label>
+                <input type="text" class="form-control" id="todoTitle" placeholder="Enter title" {{ form.title }}>
+                <div class="invalid-feedback">
+                    {% for error in form.title.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="todoDescription" class="form-label">Description</label>
+                <textarea class="form-control" id="todoDescription" rows="3"
+                          placeholder="Enter description" {{ form.description }}></textarea>
+                <div class="invalid-feedback">
+                    {% for error in form.description.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="todoDeadline" class="form-label">Deadline</label>
+                <input type="datetime-local" class="form-control" id="todoDeadline" {{ form.deadline }}>>>
+                <div class="invalid-feedback">
+                    {% for error in form.deadline.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="todoImportance" class="form-label">Importance</label>
+                <input type="number" class="form-control" id="todoImportance" {{ form.importance }}>
+                <div class="invalid-feedback">
+                    {% for error in form.importance.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
 {% endblock %}

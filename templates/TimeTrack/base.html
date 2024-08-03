@@ -1,29 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>TimeTrack</title>
+
+    {% load static %}
+    <link href="{% static 'TimeTrack/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'TimeTrack/css/style.css' %}" rel="stylesheet">
+
+    <script src="{% static 'TimeTrack/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'TimeTrack/js/javascript.js' %}"></script>
 </head>
 <body>
-    <h1>TimeTrack</h1>
-    <a href={% url 'TimeTrack:index' %}>Todo</a>-
-    <a href="{% url 'TimeTrack:group' %}">Group</a>-
-    
-    {% if user.is_authenticated %}
-        <p>Welcome, {{ user.username }}</p>
-        {# <a href="{% url 'registration:logout' %}">Logout</a> #}
-        <form method="post" action="{% url 'registration:logout' %}">  
-            {% csrf_token %}  
-            <button type="submit">Logout</button>  
-        </form>
-    {% else %}
-        <a href="{% url 'registration:login' %}">Login</a>
-    {% endif %}
-    
-    <a href="{% url 'registration:register' %}">Register</a>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">TimeTrack</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'TimeTrack:index' %}" id="home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'TimeTrack:group' %}" id="group">Group</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'registration:register' %}" id="register">Register</a>
+                </li>
+                <li class="nav-item">
+                    {% if not user.is_authenticated %}
+                        <a class="nav-link" href="{% url 'registration:login' %}" id="login">Login</a>
+                    {% else %}
+                        <form method="post" action="{% url 'registration:logout' %}">
+                            {% csrf_token %}
+                            <button class="nav-link" style="background: none; border: none" type="submit">Logout
+                            </button>
+                        </form>
+                    {% endif %}
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
-    
-    {% block content %}
-    {% endblock %}
+<!--------------------------------------------------------------------------------------------------------------------->
+
+<main>
+    <div class="sidebar">
+        <a class="nav-link py-3 border-bottom rounded-0" href="{% url 'TimeTrack:new_todo' %}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                 class="bi bi-calendar-check-fill" viewBox="0 0 16 16">
+                <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zm-5.146-5.146-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708z"></path>
+            </svg>
+            <p class="my-2">Todo</p>
+        </a>
+        <a class="nav-link py-3 border-bottom rounded-0" href="{% url 'TimeTrack:new_group' %}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                 class="bi bi-calendar2-event-fill" viewBox="0 0 16 16">
+                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zM11.5 7a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1z"></path>
+            </svg>
+            <p class="my-2">Group</p>
+        </a>
+    </div>
+
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+
+</main>
+
 </body>
 </html>

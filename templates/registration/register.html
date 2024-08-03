@@ -1,13 +1,70 @@
 {% extends "TimeTrack/base.html" %}
 
 {% block content %}
-    <h5>Please enter your username first, then enter your password, and enter your password again for confirmation.<br>请先输入您的用户名, 再输入您的密码, 并再次输入您的密码进行确认.</h5>
+    {#    <h5>Please enter your username first, then enter your password, and enter your password again for confirmation.<br>请先输入您的用户名, 再输入您的密码, 并再次输入您的密码进行确认.</h5>#}
+    {##}
+    {#    <form method="post" action="{% url 'registration:register' %}">#}
+    {#        {% csrf_token %}#}
+    {#    {{ from.as_p }}#}
+    {#        <button name="submit">Register | 注册</button>#}
+    {#        <input type="hidden" name="text" value="{% url 'TimeTrack:index' %}">#}
+    {#    </form>#}
 
-    <form method="post" action="{% url 'registration:register' %}">
-        {% csrf_token %}
-        {{ from.as_p }}
-        <button name="submit">Register | 注册</button>
-        <input type="hidden" name="text" value="{% url 'TimeTrack:index' %}">
-    </form>
+    <!---------------------------------------------------------------------->
+    {% load static %}
+
+    <script>
+        function toggleDivVisibilityBasedOnText() {
+            var divs = document.querySelectorAll(".w")
+            console.log(divs)
+            divs.forEach(function (div) {
+                // 去除前后空白符后检查文本长度  
+                if (div.textContent.trim().length === 0) {
+                    div.style.display = 'none'; // 如果没有文本，则隐藏  
+                } else {
+                    div.style.display = 'block'; // 如果有文本，则显示  
+                }
+            });
+        }
+
+        // 页面加载完成后执行  
+        window.onload = toggleDivVisibilityBasedOnText;
+    </script>
+
+
+    <div class="form-signin w-100 m-auto">
+        <form method="post" action="{% url 'registration:register' %}">
+            {% csrf_token %}
+            {{ from.as_p }}
+            <img class="my-lg-2" width="300" height="300" src="{% static 'TimeTrack/img/Regis.svg' %}" alt="register">
+            <h1 class="h3 mb-3 fw-normal">Please Register</h1>
+
+            <div class="form-floating">
+                <input class="form-control" id="{{ form.username.label }}"
+                       placeholder="name"{{ form.username }}>>>
+                <label for="{{ form.username.label }}">Name</label>
+            </div>
+            <div class="alert alert-warning w">
+                {{ form.username.errors }}
+            </div>
+            <div class="form-floating">
+                <input type="password" class="form-control" id="{{ form.password1.label }}"
+                       placeholder="Password" {{ form.password1 }}>>>
+                <label for="{{ form.password1.label }}">Password</label>
+            </div>
+            <div class="alert alert-warning w">
+                {{ form.password1.errors }}
+            </div>
+            <div class="form-floating">
+                <input type="password" class="form-control" id="{{ form.password2.label }}"
+                       placeholder="Password" {{ form.password2 }}>>>
+                <label for="{{ form.password2.label }}">Verify Password</label>
+            </div>
+            <div class="alert alert-warning w">
+                {{ form.password2.errors }}
+            </div>
+            <button class="w-100 btn btn-lg btn-primary" type="">Register</button>
+        </form>
+    </div>
 
 {% endblock %}

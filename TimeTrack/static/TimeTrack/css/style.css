@@ -1,0 +1,90 @@
+#home:hover {
+    color: #66ccff;
+    border-left: 3px solid;
+    transition: 0.3s;
+    filter: drop-shadow(0 0 25px #66ccff);
+}
+
+#group:hover {
+    color: #ff6493;
+    border-left: 3px solid;
+    transition: 0.3s;
+    filter: drop-shadow(0 0 25px #ff6493);
+}
+
+#about:hover {
+    color: #00dc82;
+    border-left: 3px solid;
+    transition: 0.3s;
+    filter: drop-shadow(0 0 25px #00dc82);
+}
+
+#register:hover {
+    color: #86b7fe;
+    border-left: 3px solid;
+    transition: 0.3s;
+}
+
+#login:hover {
+    color: #e685b5;
+    border-left: 3px solid;
+    transition: 0.3s;
+}
+
+.sidebar {
+    position: fixed; /* 固定定位 */
+    left: 0; /* 左边距为0，确保边栏始终在左侧 */
+    /*top: 0; !* 顶部对齐 *!*/
+    width: 60px; /* 边栏宽度 */
+    height: 100%; /* 高度与视口相同 */
+    padding: 15px; /* 内边距 */
+    box-sizing: border-box; /* 确保padding不影响总宽度 */
+    background: #1a1d20;
+}
+
+.content {
+    /*margin-left: 30px; !* 左侧外边距，等于边栏宽度加上可能的padding或border *!*/
+    margin-left: 60px;
+    padding: 20px;
+}
+
+.invisible-button {
+    border: none; /* 移除边框 */
+    background: none; /* 移除背景 */
+    padding: 0; /* 移除内边距 */
+}
+
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+}
+
+.form-signin .form-floating:focus-within {
+    z-index: 2;
+}
+
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.deletes {
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+}
+
+.on-group:hover .deletes {
+    visibility: visible;
+    opacity: 1;
+    height: auto;
+    transition: 0.7s;
+}
+

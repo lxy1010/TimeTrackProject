@@ -1,20 +1,83 @@
 {% extends 'TimeTrack/base.html' %}
 
 {% block content %}
-	<ul>
+    <h1 class="text-center my-3">All Todos</h1>
+    <div class="d-flex justify-content-center align-items-center">
+        <a class="btn btn-primary mx-5" href="{% url 'TimeTrack:new_group' %}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                 class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"></path>
+            </svg>
+            &nbsp;Create New Group
+        </a>
+        <a class="btn btn-primary mx-5" href="{% url 'TimeTrack:new_todo' %}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                 class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"></path>
+            </svg>
+            &nbsp;Create New Todo
+        </a>
+    </div>
+    <div class="accordion my-5">
         {% for each in group %}
-        	<li>{{ each }}</li>
-            <ul>
-                {% for todo in each.todo_set.all %}
-                	<li>{{ todo }} {{ todo.description }}</li>
-                {% empty %}
-                	<p>No Todo have been added yet. </p>
-                {% endfor %}
-            </ul>
+            <div class="on-group accordion-item">
+                <h2 class="accordion-header" id="header-{{ each.id }}" data-group-id="{{ each.id }}">
+                    <button style="background-color: var(--bs-accordion-bg)" class="accordion-button" type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapse-{{ each.id }}" aria-expanded="true"
+                            aria-controls="collapse-{{ each.id }}">
+                        {{ each.name }}
+                    </button>
+                </h2>
+                <div style="background-color: #2b3035" id="collapse-{{ each.id }}"
+                     class="accordion-collapse collapse"
+                     aria-labelledby="header-{{ each.id }}">
+                    {% if each.todo_set.all %}
+                        {% for todo in each.todo_set.all %}
+                            <div style="border-bottom:var(--bs-accordion-border-width) solid var(--bs-accordion-border-color); position: relative;"
+                                 class="accordion-body on-group">
+                                <form method="post" action="{% url 'TimeTrack:delete_todo' todo.id %}">
+                                    {% csrf_token %}
+                                    <strong>{{ todo }}</strong>&nbsp;{{ todo.importance }}<br>{{ todo.description }}
+                                    <div style="position: absolute; right: 0; top: 0" class="deletes">
+                                        <button class="btn btn-outline-warning"
+                                                type="submit">Delete This Todo
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        {% endfor %}
+                        <div class="deletes">
+                            <form method="post" action="{% url 'TimeTrack:delete_group' each.id %}">
+                                {% csrf_token %}
+                                <button style="width: 100%;" class="btn btn-outline-danger" type="submit">Delete This
+                                    Group
+                                </button>
+                            </form>
+                        </div>
+                    {% else %}
+                        <div class="accordion-body">
+                            <strong>No Todo have been added yet. </strong><br>
+                        </div>
+                        <div class="" style="height: 1px; width: 100%;"></div>
+                        <div class="deletes">
+                            <form method="post" action="{% url 'TimeTrack:delete_group' each.id %}">
+                                {% csrf_token %}
+                                <button style="width: 100%;" class="btn btn-outline-danger" type="submit">Delete This
+                                    Group
+                                </button>
+                            </form>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
         {% empty %}
-        	<p>No Groups have been added yet. </p>
+            <p>No Groups have been added yet. </p>
         {% endfor %}
-    </ul>
-    <a href="{% url 'TimeTrack:new_group' %}">Create New Group</a>
-    <a href="{% url 'TimeTrack:new_todo' %}">Create New Todo</a>
+    </div>
+
 {% endblock %}
+
+
+
+
