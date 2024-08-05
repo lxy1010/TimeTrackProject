@@ -38,7 +38,14 @@
                                  class="accordion-body on-group">
                                 <form method="post" action="{% url 'TimeTrack:delete_todo' todo.id %}">
                                     {% csrf_token %}
-                                    <strong>{{ todo }}</strong>&nbsp;{{ todo.importance }}<br>{{ todo.description }}
+                                    <strong>{{ todo }}</strong>&nbsp;{{ todo.importance }}<br>
+                                    {{ todo.description }}<br>
+                                    Deadline -- {{ todo.deadline }} -- 
+                                    {% if todo.is_expired %}
+                                    	 <strong class="text-danger">Expired</strong>
+                                    {% else %}
+                                        <strong class="text-primary">Undue</strong>
+                                    {% endif %}
                                     <div style="position: absolute; right: 0; top: 0" class="deletes">
                                         <button class="btn btn-outline-warning"
                                                 type="submit">Delete This Todo

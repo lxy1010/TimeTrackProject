@@ -33,6 +33,7 @@ class Todo(models.Model):
     deadline = models.DateTimeField()
     done = models.BooleanField(default=False)
     importance = models.IntegerField(default=0)
+    is_expired = models.BooleanField(default=False)
 
     class Meta:
         constraints = [

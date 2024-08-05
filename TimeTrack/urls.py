@@ -10,4 +10,5 @@ urlpatterns = [
     path('new_todo/', views.new_todo, name='new_todo'),
     path('delete_group/<int:group_id>', views.delete_group, name='delete_group'),
     path('delete_todo/<int:todo_id>', views.delete_todo, name='delete_todo'),
+    path('pomodoro', views.pomodoro, name='pomodoro')
 ]

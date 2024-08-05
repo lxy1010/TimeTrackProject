@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from django.http import Http404, JsonResponse
-from django.views.decorators.http import require_http_methods
+from django.utils import timezone
 
 from TimeTrack.forms import GroupForm, TodoForm
 from TimeTrack.models import Group, Todo
@@ -17,7 +16,15 @@ def index(request):
 @login_required
 def group(request):
     group = Group.objects.filter(owner=request.user)
+    for g in group:
+        for todo in g.todo_set.all():
+            if todo.deadline < timezone.now():
+                todo.is_expired = True
+            else:
+                todo.is_expired = False
+            todo.save()
     context = {'group': group}
+
     return render(request, 'TimeTrack/group.html', context=context)
 
 
@@ -68,3 +75,7 @@ def delete_todo(request, todo_id):
         todo = Todo.objects.get(id=todo_id)
         todo.delete()
         return redirect('TimeTrack:group')
+
+
+def pomodoro(request):
+    return render(request, 'TimeTrack/pomodoro.html')

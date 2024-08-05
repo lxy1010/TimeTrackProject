@@ -24,7 +24,7 @@
 
             <div class="mb-3">
                 <label for="todoTitle" class="form-label">Title</label>
-                <input type="text" class="form-control" id="todoTitle" placeholder="Enter title" {{ form.title }}>
+                <input name="title" type="text" class="form-control" id="todoTitle" placeholder="Enter title" required>
                 <div class="invalid-feedback">
                     {% for error in form.title.errors %}
                         <p>{{ error }}</p>
@@ -34,8 +34,8 @@
 
             <div class="mb-3">
                 <label for="todoDescription" class="form-label">Description</label>
-                <textarea class="form-control" id="todoDescription" rows="3"
-                          placeholder="Enter description" {{ form.description }}></textarea>
+                <textarea name="description" class="form-control" id="todoDescription" rows="3"
+                          placeholder="Enter description" required></textarea>
                 <div class="invalid-feedback">
                     {% for error in form.description.errors %}
                         <p>{{ error }}</p>
@@ -45,7 +45,7 @@
 
             <div class="mb-3">
                 <label for="todoDeadline" class="form-label">Deadline</label>
-                <input type="datetime-local" class="form-control" id="todoDeadline" {{ form.deadline }}>>>
+                <input name="deadline" type="datetime-local" class="form-control" id="todoDeadline" required>
                 <div class="invalid-feedback">
                     {% for error in form.deadline.errors %}
                         <p>{{ error }}</p>
@@ -55,7 +55,7 @@
 
             <div class="mb-3">
                 <label for="todoImportance" class="form-label">Importance</label>
-                <input type="number" class="form-control" id="todoImportance" {{ form.importance }}>
+                <input name="importance" type="number" class="form-control" id="todoImportance" required>
                 <div class="invalid-feedback">
                     {% for error in form.importance.errors %}
                         <p>{{ error }}</p>
