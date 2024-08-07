@@ -1,0 +1,47 @@
+{% extends 'TimeTrack/base.html' %}
+
+{% block content %}
+    <div class="position-relative">
+        <h1>All CheckIn</h1>
+        <div class="list-group mx-5 my-5">
+            {% for checkin in checkins %}
+                <a style="padding: 0;" href="#"
+                   class="list-group-item list-group-item-action d-flex justify-content-between">  
+                <span style="margin: 8px;" class="d-flex justify-content-between align-items-center">  
+                    <span>  
+                        <strong>
+                        {{ checkin.title }} every {{ checkin.time }}
+                        </strong>
+                        <br>  
+                        from {{ checkin.start }} to {{ checkin.end }} --
+                        {% if not checkin.doneToday %}
+                            <strong class="text-danger">Incomplete</strong>
+                        {% else %}
+                            <strong class="text-primary">Done</strong>
+                        {% endif %}
+                    </span>
+                </span>
+                    <div class="d-flex justify-content-center">
+                        <form method="post" action="{% url 'TimeTrack:finish_checkin' checkin.id %}">
+                            {% csrf_token %}
+                            <button style="height: 100%; border-radius: 0" class="btn btn-outline-success"
+                                    type="submit">Finish
+                            </button>
+                        </form>
+                        <form method="post" action="{% url 'TimeTrack:delete_checkin' checkin.id %}">
+                            {% csrf_token %}
+                            <button style="height: 100%; border-top-left-radius: 0; border-bottom-left-radius: 0; "
+                                    class="btn btn-outline-danger" type="submit">Delete
+                            </button>
+                        </form>
+                    </div>
+                </a>
+            {% empty %}
+                <p>No Checkin here</p>
+            {% endfor %}
+        </div>
+        <div style="bottom: -50px; right: 50px;" class="position-absolute">
+            <a class="btn btn-primary" href="{% url 'TimeTrack:new_checkin' %}">Create New</a>
+        </div>
+    </div>
+{% endblock %}

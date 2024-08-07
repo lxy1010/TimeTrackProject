@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Group, Todo
+from .models import Group, Todo, CheckIn
 
 
 class GroupForm(forms.ModelForm):
@@ -27,3 +27,9 @@ class TodoForm(forms.ModelForm):
         super(TodoForm, self).__init__(*args, **kwargs)
         if user and user.is_authenticated:
             self.fields['group'].queryset = Group.objects.filter(owner=user)
+
+
+class CheckInForm(forms.ModelForm):
+    class Meta:
+        model = CheckIn
+        fields = ['title', 'time', 'start', 'end']

@@ -44,6 +44,19 @@ class Todo(models.Model):
     def __str__(self):
         return f"{self.title}"
 
+
+class CheckIn(models.Model):
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.CharField(max_length=200)
+    time = models.TimeField()
+    start = models.DateField()
+    end = models.DateField()
+    done = models.DateField()
+    doneToday = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"{self.title}"
+
 # python manage.py makemigrations TimeTrack
 # python manage.py migrate
 
