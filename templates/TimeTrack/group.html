@@ -18,64 +18,82 @@
             &nbsp;Create New Todo
         </a>
     </div>
-    <div class="accordion my-5">
-        {% for each in group %}
-            <div class="on-group accordion-item">
-                <h2 class="accordion-header" id="header-{{ each.id }}" data-group-id="{{ each.id }}">
-                    <a style="text-decoration-line: none; background-color: var(--bs-accordion-bg); padding: 3px"
-                       class="accordion-button nav-item" type="button"
-                       data-bs-toggle="collapse"
-                       data-bs-target="#collapse-{{ each.id }}" aria-expanded="true"
-                       aria-controls="collapse-{{ each.id }}">
-                        <div style="width: 100%;" class="d-flex justify-content-between">
-                            <p class="my-auto ms-2">{{ each.name }}</p>
-                            <form method="post" action="{% url 'TimeTrack:delete_group' each.id %}">
-                                {% csrf_token %}
-                                <button style="border: 0" class="btn btn-outline-danger mx-4" type="submit">Delete
-                                    This
-                                    Group
-                                </button>
-                            </form>
-                        </div>
-                    </a>
-                </h2>
-                <div style="background-color: #2b3035" id="collapse-{{ each.id }}"
-                     class="accordion-collapse collapse"
-                     aria-labelledby="header-{{ each.id }}">
-                    {% if each.todo_set.all %}
-                        {% for todo in each.todo_set.all %}
+    <div class="d-flex justify-content-center">
+        <div class="accordion my-5 w-75">
+            {% for each, todos in group.items %}
+                <div class="on-group accordion-item">
+                    <h2 class="accordion-header" id="header-{{ each.id }}" data-group-id="{{ each.id }}">
+                        <a style="text-decoration-line: none; background-color: var(--bs-accordion-bg); padding: 3px; height: 42px;"
+                           class="accordion-button nav-item" type="button"
+                           data-bs-toggle="collapse"
+                           data-bs-target="#collapse-{{ each.id }}" aria-expanded="true"
+                           aria-controls="collapse-{{ each.id }}">
+                            <div style="width: 100%;" class="">
+                                <p class="my-auto ms-2">{{ each.name }}</p>
+
+                            </div>
+                        </a>
+                    </h2>
+                    <div class="position-relative">
+                        <form method="post" action="{% url 'TimeTrack:delete_group' each.id %}">
+                            {% csrf_token %}
+                            <button style="border: 0; right: -100px; top: -40px;"
+                                    class="btn btn-outline-danger mx-4 position-absolute" type="submit">Delete
+                            </button>
+                        </form>
+                    </div>
+                    <div style="background-color: #2b3035" id="collapse-{{ each.id }}"
+                         class="accordion-collapse collapse"
+                         aria-labelledby="header-{{ each.id }}">
+                        {% if todos %}
+                            {% for todo in todos %}
+                                <div class="accordion-body on-group d-flex justify-content-between"
+                                     style="border-bottom:var(--bs-accordion-border-width) solid var(--bs-accordion-border-color); position: relative; {% if todo.done %} text-decoration: line-through 2px;{% endif %}">
+                                    <div>
+                                        <strong>{{ todo }}</strong>&nbsp;{{ todo.importance }}<br>
+                                        {{ todo.description }}<br>
+                                        Deadline -- {{ todo.deadline }} --
+                                        {% if todo.done %}
+                                            <strong class="text-success">Done</strong>
+                                        {% else %}
+                                            <strong class="text-warning">Undone</strong>
+                                        {% endif %} --
+                                        {% if todo.is_expired %}
+                                            <strong class="text-danger">Expired</strong>
+                                        {% else %}
+                                            <strong class="text-primary">Undue</strong>
+                                        {% endif %}
+                                    </div>
+                                    <div class="deletes d-flex">
+                                        <form method="post" action="{% url 'TimeTrack:delete_todo' todo.id %}">
+                                            {% csrf_token %}
+                                            <button style="border: 0"
+                                                    class="btn btn-outline-warning my-auto ms-auto mx-4"
+                                                    type="submit">Delete
+                                            </button>
+                                        </form>
+                                        <form method="post" action="{% url 'TimeTrack:done_todo' todo.id %}">
+                                            {% csrf_token %}
+                                            <button style="border: 0;"
+                                                    class="btn btn-outline-success my-auto ms-auto mx-4"
+                                                    type="submit">Done
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% else %}
                             <div style="border-bottom:var(--bs-accordion-border-width) solid var(--bs-accordion-border-color); position: relative;"
                                  class="accordion-body on-group d-flex justify-content-between">
-                                <form method="post" action="{% url 'TimeTrack:delete_todo' todo.id %}">
-                                    {% csrf_token %}
-                                    <strong>{{ todo }}</strong>&nbsp;{{ todo.importance }}<br>
-                                    {{ todo.description }}<br>
-                                    Deadline -- {{ todo.deadline }} --
-                                    {% if todo.is_expired %}
-                                        <strong class="text-danger">Expired</strong>
-                                    {% else %}
-                                        <strong class="text-primary">Undue</strong>
-                                    {% endif %}
-
-                                </form>
-                                <div class="deletes d-flex">
-                                    <button style="border: 0" class="btn btn-outline-warning my-auto ms-auto mx-4"
-                                            type="submit">Delete This Todo
-                                    </button>
-                                </div>
+                                <strong>No todo have been added yet</strong>
                             </div>
-                        {% endfor %}
-                    {% else %}
-                        <div style="border-bottom:var(--bs-accordion-border-width) solid var(--bs-accordion-border-color); position: relative;"
-                             class="accordion-body on-group d-flex justify-content-between">
-                            <strong>No todo have been added yet</strong>
-                        </div>
-                    {% endif %}
+                        {% endif %}
+                    </div>
                 </div>
-            </div>
-        {% empty %}
-            <p>No Groups have been added yet. </p>
-        {% endfor %}
+            {% empty %}
+                <p>No Groups have been added yet. </p>
+            {% endfor %}
+        </div>
     </div>
 
 {% endblock %}

@@ -14,7 +14,7 @@
                         </strong>
                         <br>  
                         from {{ checkin.start }} to {{ checkin.end }} --
-                        {% if not checkin.doneToday %}
+                        {% if not checkin.done %}
                             <strong class="text-danger">Incomplete</strong>
                         {% else %}
                             <strong class="text-primary">Done</strong>

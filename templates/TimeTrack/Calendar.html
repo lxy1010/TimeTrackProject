@@ -1,0 +1,26 @@
+{% extends 'TimeTrack/base.html' %}
+
+{% block content %}
+    <h1>Todo Calendar</h1>
+
+    <div class="container mt-5">
+        <h1>{{ today }}</h1>
+        <div style="grid-template-columns: repeat(7, 1fr)" class="calendar d-grid gap-5">
+            <!-- 假设今天是2023年4月的第一天是星期三 -->
+            <!-- 周一到周日的表头 -->
+            <div class="day">Sun</div>
+            <div class="day">Mon</div>
+            <div class="day">Tue</div>
+            <div class="day">Wed</div>
+            <div class="day">Thu</div>
+            <div class="day">Fri</div>
+            <div class="day">Sat</div>
+        
+            {% for day in days %}
+                <div class="day">{{ day }}</div>
+            {% endfor %}
+
+        </div>
+    </div>
+
+{% endblock %}

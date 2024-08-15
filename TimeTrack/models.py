@@ -51,8 +51,8 @@ class CheckIn(models.Model):
     time = models.TimeField()
     start = models.DateField()
     end = models.DateField()
-    done = models.DateField()
-    doneToday = models.BooleanField(default=False)
+    done = models.BooleanField(default=False)
+    doneToday = models.DateField()
 
     def __str__(self):
         return f"{self.title}"
