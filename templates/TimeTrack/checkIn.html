@@ -1,8 +1,9 @@
 {% extends 'TimeTrack/base.html' %}
+{% load i18n %}
 
 {% block content %}
     <div class="position-relative">
-        <h1>All CheckIn</h1>
+        <h1>{% translate 'All CheckIn' %}</h1>
         <div class="list-group mx-5 my-5">
             {% for checkin in checkins %}
                 <a style="padding: 0;" href="#"
@@ -10,14 +11,14 @@
                 <span style="margin: 8px;" class="d-flex justify-content-between align-items-center">  
                     <span>  
                         <strong>
-                        {{ checkin.title }} every {{ checkin.time }}
+                        {{ checkin.title }} {% translate 'every' %} {{ checkin.time }}
                         </strong>
                         <br>  
-                        from {{ checkin.start }} to {{ checkin.end }} --
+                        {% translate 'from' %} {{ checkin.start }} {% translate 'to' %} {{ checkin.end }} --
                         {% if not checkin.done %}
-                            <strong class="text-danger">Incomplete</strong>
+                            <strong class="text-danger">{% translate 'Incomplete' %}</strong>
                         {% else %}
-                            <strong class="text-primary">Done</strong>
+                            <strong class="text-primary">{% translate 'Done' %}</strong>
                         {% endif %}
                     </span>
                 </span>
@@ -25,23 +26,23 @@
                         <form method="post" action="{% url 'TimeTrack:finish_checkin' checkin.id %}">
                             {% csrf_token %}
                             <button style="height: 100%; border-radius: 0" class="btn btn-outline-success"
-                                    type="submit">Finish
+                                    type="submit">{% translate 'Finish' %}
                             </button>
                         </form>
                         <form method="post" action="{% url 'TimeTrack:delete_checkin' checkin.id %}">
                             {% csrf_token %}
                             <button style="height: 100%; border-top-left-radius: 0; border-bottom-left-radius: 0; "
-                                    class="btn btn-outline-danger" type="submit">Delete
+                                    class="btn btn-outline-danger" type="submit">{% translate 'Delete' %}
                             </button>
                         </form>
                     </div>
                 </a>
             {% empty %}
-                <p>No Checkin here</p>
+                <p>{% translate 'No Checkin here' %}</p>
             {% endfor %}
         </div>
         <div style="bottom: -50px; right: 50px;" class="position-absolute">
-            <a class="btn btn-primary" href="{% url 'TimeTrack:new_checkin' %}">Create New</a>
+            <a class="btn btn-primary" href="{% url 'TimeTrack:new_checkin' %}">{% translate 'Create New' %}</a>
         </div>
     </div>
 {% endblock %}

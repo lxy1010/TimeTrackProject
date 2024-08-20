@@ -1,4 +1,5 @@
 {% extends "TimeTrack/base.html" %}
+{% load i18n %}
 
 {% block content %}
     {% load static %}
@@ -7,26 +8,25 @@
             <div class="col-12 col-md-7 col-lg-6 order-md-1 pr-md-5">
                 <!-- Heading -->
                 <h1 class="display-4 text-center text-md-left mb-3" style="font-weight: bold">
-                    Weave Your Time, <br>Build Your Future with <strong class="text-primary">TimeTrack</strong>
+                    {% translate 'Weave Your Time' %}, <br>{% translate 'Build Your Future with' %} <strong
+                        class="text-primary">{% translate 'TimeTrack' %}</strong>
                 </h1>
                 <!-- Text -->
                 <p class="lead text-center text-md-left text-muted">
-                    Say goodbye to procrastination, embrace efficiency. TimeTrack, your smart time management
-                    companion. Whether it's work projects, study tasks, or daily chores, we help you plan
-                    effortlessly, track in real-time, and ensure every step leads to success. Accurate statistics,
-                    clear visualization, making time your most valuable asset. Join TimeTrack now and unlock your
-                    productive life!
+                    {% translate "Say goodbye to procrastination, embrace efficiency. TimeTrack, your smart time management companion. Whether it's work projects, study tasks, or daily chores, we help you plan effortlessly, track in real-time, and ensure every step leads to success. Accurate statistics, clear visualization, making time your most valuable asset. Join TimeTrack now and unlock your productive life!" %}
+
                 </p>
                 <!-- Buttons -->
                 {% if not user.is_authenticated %}
                     <div class="text-center text-md-left mt-5">
                         <a href="{% url 'registration:login' %}">
-                            <span class="btn btn-outline-primary btn-lg" style="font-size: xxx-large">Get started></span></a>
+                            <span class="btn btn-outline-primary btn-lg"
+                                  style="font-size: xxx-large">{% translate 'Get started' %}></span></a>
                     </div>
                 {% else %}
                     <div class="text-center text-md-left mt-5">
                         <a href="{% url 'TimeTrack:group' %}">
-                            <span class="btn btn-outline-primary btn-lg" style="font-size: xx-large">Get started></span></a>
+                            <span class="btn btn-outline-primary btn-lg" style="font-size: xx-large">{% translate 'Get started' %}></span></a>
                     </div>
                 {% endif %}
             </div>

@@ -1,12 +1,12 @@
 {% extends 'TimeTrack/base.html' %}
+{% load i18n %}
 
 {% block content %}
-    <h1>Podoromo</h1>
+    <h1>{% translate 'Podoromo' %}</h1>
     <div class="mx-auto text-center timer">
         <h1 class="my-lg-5" style="font-size: 72px" id="timeDisplay">25:00</h1>
-        <button class="btn btn-lg btn-outline-primary mx-3" id="startBtn">开始</button>
-        <button class="btn btn-lg btn-outline-warning mx-3" id="pauseBtn" disabled>暂停</button>
-        <button class="btn btn-lg btn-outline-danger mx-3" id="resetBtn">重置</button>
+        <button class="btn btn-lg btn-outline-primary mx-3" id="startBtn">{% translate 'Start' %}</button>
+        <button class="btn btn-lg btn-outline-warning mx-3" id="pauseBtn" disabled>{% translate 'Stop' %}</button>
+        <button class="btn btn-lg btn-outline-danger mx-3" id="resetBtn">{% translate 'Reset' %}</button>
     </div>
 {% endblock %}
-

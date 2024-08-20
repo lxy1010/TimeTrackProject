@@ -1,21 +1,22 @@
 {% extends 'TimeTrack/base.html' %}
+{% load i18n %}
 
 {% block content %}
-    <h1 class="text-center my-3">All Todos</h1>
+    <h1 class="text-center my-3">{% translate 'All Todos' %}</h1>
     <div class="d-flex justify-content-center align-items-center">
         <a class="btn btn-primary mx-5" href="{% url 'TimeTrack:new_group' %}">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                  class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
                 <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"></path>
             </svg>
-            &nbsp;Create New Group
+            &nbsp;{% translate 'Create New Group' %}
         </a>
         <a class="btn btn-primary mx-5" href="{% url 'TimeTrack:new_todo' %}">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                  class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
                 <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"></path>
             </svg>
-            &nbsp;Create New Todo
+            &nbsp;{% translate 'Create New Todo' %}
         </a>
     </div>
     <div class="d-flex justify-content-center">
@@ -30,7 +31,6 @@
                            aria-controls="collapse-{{ each.id }}">
                             <div style="width: 100%;" class="">
                                 <p class="my-auto ms-2">{{ each.name }}</p>
-
                             </div>
                         </a>
                     </h2>
@@ -38,7 +38,7 @@
                         <form method="post" action="{% url 'TimeTrack:delete_group' each.id %}">
                             {% csrf_token %}
                             <button style="border: 0; right: -100px; top: -40px;"
-                                    class="btn btn-outline-danger mx-4 position-absolute" type="submit">Delete
+                                    class="btn btn-outline-danger mx-4 position-absolute" type="submit">{% translate 'Delete' %}
                             </button>
                         </form>
                     </div>
@@ -52,16 +52,16 @@
                                     <div>
                                         <strong>{{ todo }}</strong>&nbsp;{{ todo.importance }}<br>
                                         {{ todo.description }}<br>
-                                        Deadline -- {{ todo.deadline }} --
+                                        {% translate 'Deadline' %} -- {{ todo.deadline }} --
                                         {% if todo.done %}
-                                            <strong class="text-success">Done</strong>
+                                            <strong class="text-success">{% translate 'Done' %}</strong>
                                         {% else %}
-                                            <strong class="text-warning">Undone</strong>
+                                            <strong class="text-warning">{% translate 'Undone' %}</strong>
                                         {% endif %} --
                                         {% if todo.is_expired %}
-                                            <strong class="text-danger">Expired</strong>
+                                            <strong class="text-danger">{% translate 'Expired' %}</strong>
                                         {% else %}
-                                            <strong class="text-primary">Undue</strong>
+                                            <strong class="text-primary">{% translate 'Undue' %}</strong>
                                         {% endif %}
                                     </div>
                                     <div class="deletes d-flex">
@@ -69,14 +69,14 @@
                                             {% csrf_token %}
                                             <button style="border: 0"
                                                     class="btn btn-outline-warning my-auto ms-auto mx-4"
-                                                    type="submit">Delete
+                                                    type="submit">{% translate 'Delete' %}
                                             </button>
                                         </form>
                                         <form method="post" action="{% url 'TimeTrack:done_todo' todo.id %}">
                                             {% csrf_token %}
                                             <button style="border: 0;"
                                                     class="btn btn-outline-success my-auto ms-auto mx-4"
-                                                    type="submit">Done
+                                                    type="submit">{% translate 'Done' %}
                                             </button>
                                         </form>
                                     </div>
@@ -85,13 +85,13 @@
                         {% else %}
                             <div style="border-bottom:var(--bs-accordion-border-width) solid var(--bs-accordion-border-color); position: relative;"
                                  class="accordion-body on-group d-flex justify-content-between">
-                                <strong>No todo have been added yet</strong>
+                                <strong>{% translate 'No todo have been added yet' %}</strong>
                             </div>
                         {% endif %}
                     </div>
                 </div>
             {% empty %}
-                <p>No Groups have been added yet. </p>
+                <p>{% translate 'No Groups have been added yet.' %} </p>
             {% endfor %}
         </div>
     </div>

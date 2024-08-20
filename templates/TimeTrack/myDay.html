@@ -1,8 +1,9 @@
 {% extends 'TimeTrack/base.html' %}
+{% load i18n %}
 
 {% block content %}
     <div class="container">
-        <h1 class="text-center mb-4">My Day</h1>
+        <h1 class="text-center mb-4">{% translate 'My Day' %}</h1>
         <div class="d-flex justify-content-center">
         <!-- 这个布局不要再动了!!! 不然css的list-empty:empty检测不到!!!!! -->
         <div style="width: 50%;" class="list-group empty-list">{% for todo in todos %}
@@ -17,12 +18,12 @@
                         <br>
                         {{ todo.deadline }} --
                         {% if todo.is_expired %}
-                            <strong class="text-danger">Expired</strong>
+                            <strong class="text-danger">{% translate 'Expired' %}</strong>
                         {% else %}
-                            <strong class="text-primary">Undue</strong>
+                            <strong class="text-primary">{% translate 'Undue' %}</strong>
                         {% endif %}
                     </span>
-                    <span class="badge bg-secondary rounded-pill">待办</span>
+                    <span class="badge bg-secondary rounded-pill">{% translate 'Todo' %}</span>
                 </span>
             </a>
             {% endfor %}{% for checkin in checkins %}
@@ -30,17 +31,17 @@
                     <span class="d-flex justify-content-between align-items-center">
                         <span>
                             <strong>
-                            {{ checkin.title }} every {{ checkin.time }}
+                            {{ checkin.title }} {% translate 'every' %} {{ checkin.time }}
                             </strong>
                             <br>
-                            from {{ checkin.start }} to {{ checkin.end }} --
+                            {% translate 'from' %} {{ checkin.start }} {% translate 'to' %} {{ checkin.end }} --
                             {% if not checkin.doneToday %}
-                                <strong class="text-danger">Incomplete</strong>
+                                <strong class="text-danger">{% translate 'Incomplete' %}</strong>
                             {% else %}
-                                <strong class="text-primary">Done</strong>
+                                <strong class="text-primary">{% translate 'Done' %}</strong>
                             {% endif %}
                         </span>
-                        <span class="badge bg-secondary rounded-pill">打卡</span>
+                        <span class="badge bg-secondary rounded-pill">{% translate 'CheckIn' %}</span>
                     </span>
                 </a>
             {% endfor %}</div>

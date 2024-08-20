@@ -134,3 +134,12 @@ def group(request):
 
     return render(request, 'TimeTrack/group.html', context=context)
 ```
+
+```shell
+# 生成中文的po文件
+python manage.py makemessages -l zh_HANS    
+# 生成英文的po文件
+python manage.py makemessages -l en
+# 翻译完成后 生成mo文件
+python manage.py compilemessages
+```

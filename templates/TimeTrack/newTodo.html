@@ -1,15 +1,16 @@
 {% extends 'TimeTrack/base.html' %}
+{% load i18n %}
 
 {% block content %}
 
 
     <div class="container mt-5">
-        <h2>Add New Todo</h2>
+        <h2>{% translate 'Add New Todo' %}</h2>
         <form method="post" class="px-4 py-3" action="{% url 'TimeTrack:new_todo' %}">
             {% csrf_token %}
 
             <div class="mb-3">
-                <label for="group_id" class="form-label">Group</label>
+                <label for="group_id" class="form-label">{% translate 'Group' %}</label>
                 <select class="form-select" name="group" required id="group_id">
                     {% for group in form.group %}
                         {{ group }}
@@ -23,7 +24,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="todoTitle" class="form-label">Title</label>
+                <label for="todoTitle" class="form-label">{% translate 'Title' %}</label>
                 <input name="title" type="text" class="form-control" id="todoTitle" placeholder="Enter title" required>
                 <div class="invalid-feedback">
                     {% for error in form.title.errors %}
@@ -33,7 +34,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="todoDescription" class="form-label">Description</label>
+                <label for="todoDescription" class="form-label">{% translate 'Description' %}</label>
                 <textarea name="description" class="form-control" id="todoDescription" rows="3"
                           placeholder="Enter description" required></textarea>
                 <div class="invalid-feedback">
@@ -44,7 +45,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="todoDeadline" class="form-label">Deadline</label>
+                <label for="todoDeadline" class="form-label">{% translate 'Deadline' %}</label>
                 <input name="deadline" type="datetime-local" class="form-control" id="todoDeadline" required>
                 <div class="invalid-feedback">
                     {% for error in form.deadline.errors %}
@@ -54,7 +55,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="todoImportance" class="form-label">Importance</label>
+                <label for="todoImportance" class="form-label">{% translate 'Importance' %}</label>
                 <input name="importance" type="number" class="form-control" id="todoImportance" required>
                 <div class="invalid-feedback">
                     {% for error in form.importance.errors %}
@@ -63,7 +64,7 @@
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">{% translate 'Submit' %}</button>
         </form>
     </div>
 {% endblock %}

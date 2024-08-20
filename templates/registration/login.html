@@ -1,26 +1,27 @@
 {% extends 'TimeTrack/base.html' %}
+{% load i18n %}
 
 {% block content %}
     {% if form.error %}
-        <p>You Username and Password didn't Match</p>
+        <p>{% translate 'You Username and Password didn't Match' %}</p>
     {% endif %}
     <div class="form-signin w-100 m-auto">
         <form method="post" action="{% url 'registration:login' %}">
             {% csrf_token %}
-            <h1 class="h3 mb-3 fw-normal">Please Login</h1>
+            <h1 class="h3 mb-3 fw-normal">{% translate 'Please Login' %}</h1>
 
             {{ form.non_field_errors }}
 
             <div class="form-floating">
                 <input class="form-control" id="floatingInput" placeholder="name" name="username" required>
-                <label for="floatingInput">Name</label>
+                <label for="floatingInput">{% translate 'Name' %}</label>
             </div>
             <div class="form-floating">
                 <input type="password" class="form-control" id="floatingPassword"
                        placeholder="Password" name="password" required>
-                <label for="floatingPassword">Password</label>
+                <label for="floatingPassword">{% translate 'Password' %}</label>
             </div>
-            <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
+            <button class="w-100 btn btn-lg btn-primary" type="submit">{% translate 'Login' %}</button>
             <input type="hidden" name="next" value="{% url 'TimeTrack:index' %}">
         </form>
     </div>

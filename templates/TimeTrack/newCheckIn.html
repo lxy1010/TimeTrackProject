@@ -1,13 +1,14 @@
  {% extends 'TimeTrack/base.html' %}
+{% load i18n %}
 
 {% block content %}
-    <h1>Create New CheackIn</h1>
+    <h1>{% translate 'Create New CheackIn' %}</h1>
     <div class="container mt-5">
         <form method="post" action="{% url 'TimeTrack:new_checkin' %}">
             {% csrf_token %}
 
             <div class="mb-3">
-                <label for="checkInTitle" class="form-label">Title</label>
+                <label for="checkInTitle" class="form-label">{% translate 'Title' %}</label>
                 <input name="title" type="text" class="form-control" id="checkInTitle" placeholder="Enter title"
                        required>
                 <div class="invalid-feedback">
@@ -18,7 +19,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="checkInTime" class="form-label">Time</label>
+                <label for="checkInTime" class="form-label">{% translate 'Time' %}</label>
                 <input name="time" type="time" class="form-control" id="checkInTime" required>
                 <div class="invalid-feedback">
                     {% for error in form.time.errors %}
@@ -27,7 +28,7 @@
                 </div>
             </div>
             <div class="mb-3">
-                <label for="checkInStart" class="form-label">Begin Date</label>
+                <label for="checkInStart" class="form-label">{% translate 'Begin Date' %}</label>
                 <input name="start" type="date" class="form-control" id="checkInStart" required>
                 <div class="invalid-feedback">
                     {% for error in form.time.errors %}
@@ -36,7 +37,7 @@
                 </div>
             </div>
             <div class="mb-3">
-                <label for="checkInEnd" class="form-label">End Date</label>
+                <label for="checkInEnd" class="form-label">{% translate 'End Date' %}</label>
                 <input name="end" type="date" class="form-control" id="checkInEnd" required>
                 <div class="invalid-feedback">
                     {% for error in form.time.errors %}
@@ -46,7 +47,7 @@
             </div>
 
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">{% translate 'Submit' %}</button>
 
         </form>
     </div>

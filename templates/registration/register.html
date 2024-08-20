@@ -1,16 +1,7 @@
 {% extends "TimeTrack/base.html" %}
+{% load i18n %}
 
 {% block content %}
-    {#    <h5>Please enter your username first, then enter your password, and enter your password again for confirmation.<br>请先输入您的用户名, 再输入您的密码, 并再次输入您的密码进行确认.</h5>#}
-    {##}
-    {#    <form method="post" action="{% url 'registration:register' %}">#}
-    {#        {% csrf_token %}#}
-    {#    {{ from.as_p }}#}
-    {#        <button name="submit">Register | 注册</button>#}
-    {#        <input type="hidden" name="text" value="{% url 'TimeTrack:index' %}">#}
-    {#    </form>#}
-
-    <!---------------------------------------------------------------------->
     {% load static %}
 
     <script>
@@ -37,12 +28,12 @@
             {% csrf_token %}
             {{ from.as_p }}
             <img class="my-lg-2" width="300" height="300" src="{% static 'TimeTrack/img/Regis.svg' %}" alt="register">
-            <h1 class="h3 mb-3 fw-normal">Please Register</h1>
+            <h1 class="h3 mb-3 fw-normal">{% translate 'Please Register' %}</h1>
 
             <div class="form-floating my-lg-2">
                 <input class="form-control" id="{{ form.username.label }}"
                        placeholder="name" name="username" required>
-                <label for="{{ form.username.label }}">Name</label>
+                <label for="{{ form.username.label }}">{% translate 'Name' %}</label>
             </div>
             <div class="alert alert-warning w">
                 {{ form.username.errors }}
@@ -50,7 +41,7 @@
             <div class="form-floating my-lg-2">
                 <input type="password" class="form-control" id="{{ form.password1.label }}"
                        placeholder="Password" name="password1" required>
-                <label for="{{ form.password1.label }}">Password</label>
+                <label for="{{ form.password1.label }}">{% translate 'Password' %}</label>
             </div>
             <div class="alert alert-warning w">
                 {{ form.password1.errors }}
@@ -58,12 +49,12 @@
             <div class="form-floating my-lg-2">
                 <input type="password" class="form-control" id="{{ form.password2.label }}"
                        placeholder="Password" name="password2" required>
-                <label for="{{ form.password2.label }}">Verify Password</label>
+                <label for="{{ form.password2.label }}">{% translate 'Verify Password' %}</label>
             </div>
             <div class="alert alert-warning w">
                 {{ form.password2.errors }}
             </div>
-            <button class="w-100 btn btn-lg btn-primary" type="submit">Register</button>
+            <button class="w-100 btn btn-lg btn-primary" type="submit">{% translate 'Register' %}</button>
         </form>
     </div>
 
