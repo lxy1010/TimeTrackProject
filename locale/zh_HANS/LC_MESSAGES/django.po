@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-20 12:06+0800\n"
+"POT-Creation-Date: 2024-08-20 13:21+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: .\templates\TimeTrack\Calendar.html:5 .\templates\TimeTrack\base.html:110
 msgid "Calendar"
-msgstr ""
+msgstr "日历"
 
 #: .\templates\TimeTrack\base.html:23
 msgid "Home"
@@ -40,126 +40,122 @@ msgstr "关于"
 #: .\templates\TimeTrack\base.html:35
 #: .\templates\registration\register.html:57
 msgid "Register"
-msgstr ""
+msgstr "注册"
 
 #: .\templates\TimeTrack\base.html:48
 msgid "Not Logged In"
-msgstr ""
+msgstr "未登录"
 
 #: .\templates\TimeTrack\base.html:56 .\templates\registration\login.html:24
 msgid "Login"
-msgstr ""
+msgstr "登录"
 
 #: .\templates\TimeTrack\base.html:60
 msgid "Logout"
-msgstr ""
+msgstr "注销"
 
 #: .\templates\TimeTrack\base.html:79
 msgid "Todos"
-msgstr ""
+msgstr "待办"
 
 #: .\templates\TimeTrack\base.html:86
-#, fuzzy
-#| msgid "Group"
 msgid "Groups"
-msgstr "待办"
+msgstr "待办组"
 
 #: .\templates\TimeTrack\base.html:94 .\templates\TimeTrack\pomodoro.html:5
 msgid "Podoromo"
-msgstr ""
+msgstr "番茄"
 
 #: .\templates\TimeTrack\base.html:102
 msgid "MyDay"
-msgstr ""
+msgstr "我的一天"
 
 #: .\templates\TimeTrack\checkIn.html:6
-#, fuzzy
-#| msgid "CheckIn"
 msgid "All CheckIn"
 msgstr "打卡"
 
 #: .\templates\TimeTrack\checkIn.html:14 .\templates\TimeTrack\myDay.html:34
 msgid "every"
-msgstr ""
+msgstr "每"
 
 #: .\templates\TimeTrack\checkIn.html:17 .\templates\TimeTrack\myDay.html:37
 msgid "from"
-msgstr ""
+msgstr "从"
 
 #: .\templates\TimeTrack\checkIn.html:17 .\templates\TimeTrack\myDay.html:37
 msgid "to"
-msgstr ""
+msgstr "到"
 
 #: .\templates\TimeTrack\checkIn.html:19 .\templates\TimeTrack\myDay.html:39
 msgid "Incomplete"
-msgstr ""
+msgstr "未完成"
 
 #: .\templates\TimeTrack\checkIn.html:21 .\templates\TimeTrack\group.html:57
 #: .\templates\TimeTrack\group.html:79 .\templates\TimeTrack\myDay.html:41
 msgid "Done"
-msgstr ""
+msgstr "完成"
 
 #: .\templates\TimeTrack\checkIn.html:29
 msgid "Finish"
-msgstr ""
+msgstr "完成"
 
 #: .\templates\TimeTrack\checkIn.html:35 .\templates\TimeTrack\group.html:41
 #: .\templates\TimeTrack\group.html:72
 #: .\venv\Lib\site-packages\django\forms\formsets.py:499
 msgid "Delete"
-msgstr ""
+msgstr "删除"
 
 #: .\templates\TimeTrack\checkIn.html:41
 msgid "No Checkin here"
-msgstr ""
+msgstr "这里还没有打卡哦~"
 
 #: .\templates\TimeTrack\checkIn.html:45
 msgid "Create New"
-msgstr ""
+msgstr "创建"
 
 #: .\templates\TimeTrack\group.html:5
 msgid "All Todos"
-msgstr ""
+msgstr "待办"
 
 #: .\templates\TimeTrack\group.html:12 .\templates\TimeTrack\newGroup.html:8
 msgid "Create New Group"
-msgstr ""
+msgstr "创建待办组"
 
 #: .\templates\TimeTrack\group.html:19
 msgid "Create New Todo"
-msgstr ""
+msgstr "创建待办"
 
 #: .\templates\TimeTrack\group.html:55 .\templates\TimeTrack\newTodo.html:48
 msgid "Deadline"
-msgstr ""
+msgstr "截止日期"
 
 #: .\templates\TimeTrack\group.html:59
 msgid "Undone"
-msgstr ""
+msgstr "未完成"
 
 #: .\templates\TimeTrack\group.html:62 .\templates\TimeTrack\myDay.html:21
 msgid "Expired"
-msgstr ""
+msgstr "已截止"
 
 #: .\templates\TimeTrack\group.html:64 .\templates\TimeTrack\myDay.html:23
 msgid "Undue"
-msgstr ""
+msgstr "未截止"
 
 #: .\templates\TimeTrack\group.html:88
 msgid "No todo have been added yet"
-msgstr ""
+msgstr "这里还没有待办哦~"
 
 #: .\templates\TimeTrack\group.html:94
 msgid "No Groups have been added yet."
-msgstr ""
+msgstr "这里还没有待办组哦~"
 
 #: .\templates\TimeTrack\index.html:11
 msgid "Weave Your Time"
-msgstr ""
+msgstr "编织你的时间"
 
 #: .\templates\TimeTrack\index.html:11
 msgid "Build Your Future with"
-msgstr ""
+msgstr "构建你的未来 与"
 
 #: .\templates\TimeTrack\index.html:12
 msgid "TimeTrack"
@@ -173,6 +169,10 @@ msgid ""
 "step leads to success. Accurate statistics, clear visualization, making time "
 "your most valuable asset. Join TimeTrack now and unlock your productive life!"
 msgstr ""
+"用TimeTrack规划您的时间，构建您的未来。告别拖延，拥抱效率。TimeTrack，您的智"
+"能时间管理助手。无论是工作项目、学习任务还是日常杂务，我们助您轻松规划、实时"
+"追踪，并确保每一步都引领您走向成功。精准的数据统计，直观的可视化，让时间成为"
+"您最大的财富。即刻加入TimeTrack，开启高效生活新篇章！"
 
 #: .\templates\TimeTrack\index.html:24 .\templates\TimeTrack\index.html:29
 msgid "Get started"
@@ -180,101 +180,97 @@ msgstr ""
 
 #: .\templates\TimeTrack\myDay.html:6
 msgid "My Day"
-msgstr ""
+msgstr "我的一天"
 
 #: .\templates\TimeTrack\myDay.html:26
 msgid "Todo"
-msgstr ""
+msgstr "待办"
 
 #: .\templates\TimeTrack\newCheckIn.html:5
 msgid "Create New CheackIn"
-msgstr ""
+msgstr "创建打卡"
 
 #: .\templates\TimeTrack\newCheckIn.html:11
 #: .\templates\TimeTrack\newTodo.html:27
 msgid "Title"
-msgstr ""
+msgstr "标题"
 
 #: .\templates\TimeTrack\newCheckIn.html:22
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2520
 msgid "Time"
-msgstr ""
+msgstr "时间"
 
 #: .\templates\TimeTrack\newCheckIn.html:31
 msgid "Begin Date"
-msgstr ""
+msgstr "开始日期"
 
 #: .\templates\TimeTrack\newCheckIn.html:40
 msgid "End Date"
-msgstr ""
+msgstr "截止日期"
 
 #: .\templates\TimeTrack\newCheckIn.html:50
 #: .\templates\TimeTrack\newTodo.html:67
 msgid "Submit"
-msgstr ""
+msgstr "创建"
 
 #: .\templates\TimeTrack\newGroup.html:16
 #: .\templates\registration\login.html:17
 #: .\templates\registration\register.html:36
 msgid "Name"
-msgstr ""
+msgstr "名称"
 
 #: .\templates\TimeTrack\newGroup.html:18
 msgid "Create"
-msgstr ""
+msgstr "创建"
 
 #: .\templates\TimeTrack\newTodo.html:8
 msgid "Add New Todo"
-msgstr ""
+msgstr "添加待办"
 
 #: .\templates\TimeTrack\newTodo.html:37
 msgid "Description"
-msgstr ""
+msgstr "描述"
 
 #: .\templates\TimeTrack\newTodo.html:58
 msgid "Importance"
-msgstr ""
+msgstr "重要指数"
 
 #: .\templates\TimeTrack\pomodoro.html:8
 msgid "Start"
-msgstr ""
+msgstr "开始"
 
 #: .\templates\TimeTrack\pomodoro.html:9
 msgid "Stop"
-msgstr ""
+msgstr "停止"
 
 #: .\templates\TimeTrack\pomodoro.html:10
 msgid "Reset"
-msgstr ""
+msgstr "重置"
 
 #: .\templates\language\index.html:22
 msgid "Switch"
-msgstr ""
+msgstr "选择"
 
 #: .\templates\registration\logged_out.html:5
 msgid "You have been logged out"
-msgstr ""
-
-#: .\templates\registration\login.html:6
-msgid "You Username and Password didn"
-msgstr ""
+msgstr "您已登出"
 
 #: .\templates\registration\login.html:11
 msgid "Please Login"
-msgstr ""
+msgstr "请登录"
 
 #: .\templates\registration\login.html:22
 #: .\templates\registration\register.html:44
 msgid "Password"
-msgstr ""
+msgstr "密码"
 
 #: .\templates\registration\register.html:31
 msgid "Please Register"
-msgstr ""
+msgstr "请注册"
 
 #: .\templates\registration\register.html:52
 msgid "Verify Password"
-msgstr ""
+msgstr "验证密码"
 
 #: .\venv\Lib\site-packages\click\_termui_impl.py:518
 msgid "{editor}: Editing failed"

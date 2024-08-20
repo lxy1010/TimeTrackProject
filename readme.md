@@ -137,7 +137,7 @@ def group(request):
 
 ```shell
 # 生成中文的po文件
-python manage.py makemessages -l zh_HANS    
+python manage.py makemessages -l zh_HANS
 # 生成英文的po文件
 python manage.py makemessages -l en
 # 翻译完成后 生成mo文件

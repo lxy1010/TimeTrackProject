@@ -3,7 +3,7 @@
 
 {% block content %}
     {% if form.error %}
-        <p>{% translate 'You Username and Password didn't Match' %}</p>
+        <p>{% translate “You Username and Password didn't Match” %}</p>
     {% endif %}
     <div class="form-signin w-100 m-auto">
         <form method="post" action="{% url 'registration:login' %}">
