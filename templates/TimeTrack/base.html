@@ -34,10 +34,13 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'registration:register' %}" id="register">{% translate 'Register' %}</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'language:index' %}" id="language">{% translate 'Language' %}</a>
+                </li>
             </ul>
         </div>
         <div class="ms-auto mx-5">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav d-flex flex-row">
                 <li class="nav-item d-flex align-items-center">
                     <p class="my-auto mx-3">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"

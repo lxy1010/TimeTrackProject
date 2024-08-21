@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-20 13:21+0800\n"
+"POT-Creation-Date: 2024-08-21 15:30+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: .\templates\TimeTrack\Calendar.html:5 .\templates\TimeTrack\base.html:110
+#: .\templates\TimeTrack\Calendar.html:5 .\templates\TimeTrack\base.html:113
 msgid "Calendar"
 msgstr "日历"
 
@@ -42,31 +42,35 @@ msgstr "关于"
 msgid "Register"
 msgstr "注册"
 
-#: .\templates\TimeTrack\base.html:48
+#: .\templates\TimeTrack\base.html:38 .\templates\language\index.html:10
+msgid "Language"
+msgstr "语言"
+
+#: .\templates\TimeTrack\base.html:51
 msgid "Not Logged In"
 msgstr "未登录"
 
-#: .\templates\TimeTrack\base.html:56 .\templates\registration\login.html:24
+#: .\templates\TimeTrack\base.html:59 .\templates\registration\login.html:24
 msgid "Login"
 msgstr "登录"
 
-#: .\templates\TimeTrack\base.html:60
+#: .\templates\TimeTrack\base.html:63
 msgid "Logout"
 msgstr "注销"
 
-#: .\templates\TimeTrack\base.html:79
+#: .\templates\TimeTrack\base.html:82
 msgid "Todos"
 msgstr "待办"
 
-#: .\templates\TimeTrack\base.html:86
+#: .\templates\TimeTrack\base.html:89
 msgid "Groups"
 msgstr "待办组"
 
-#: .\templates\TimeTrack\base.html:94 .\templates\TimeTrack\pomodoro.html:5
+#: .\templates\TimeTrack\base.html:97 .\templates\TimeTrack\pomodoro.html:5
 msgid "Podoromo"
 msgstr "番茄"
 
-#: .\templates\TimeTrack\base.html:102
+#: .\templates\TimeTrack\base.html:105
 msgid "MyDay"
 msgstr "我的一天"
 
@@ -247,7 +251,11 @@ msgstr "停止"
 msgid "Reset"
 msgstr "重置"
 
-#: .\templates\language\index.html:22
+#: .\templates\language\index.html:6
+msgid "Choose Your Language"
+msgstr "选择语言"
+
+#: .\templates\language\index.html:23
 msgid "Switch"
 msgstr "选择"
 
