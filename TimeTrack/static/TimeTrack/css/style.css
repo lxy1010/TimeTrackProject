@@ -1,3 +1,13 @@
+@font-face {
+  font-family: 'SmileySans';
+  src: url("../fonts/SmileySans-Oblique.otf.woff2") format('woff2');
+}
+
+body {
+  font-family: 'SmileySans', sans-serif; /* 首先尝试使用自定义字体，如果不可用则回退到sans-serif */
+  letter-spacing: 2px;
+}
+
 #home:hover {
     color: #66ccff;
     border-left: 3px solid;
@@ -47,13 +57,17 @@
     filter: drop-shadow(0 0 25px #a52834);
 }
 
+nav {
+    z-index: 1000;
+}
+
 .sidebar {
     position: fixed; /* 固定定位 */
     left: 0; /* 左边距为0，确保边栏始终在左侧 */
-    /*top: 0; !* 顶部对齐 *!*/
+    top: 0; /* 顶部对齐 */
     width: 60px; /* 边栏宽度 */
     height: 100%; /* 高度与视口相同 */
-    padding: 15px; /* 内边距 */
+    padding: 58px 15px 15px;
     box-sizing: border-box; /* 确保padding不影响总宽度 */
     background: #1a1d20;
 }
@@ -113,4 +127,35 @@
     color: #6ea8fe;
     border-radius: 20px;
     margin-top: 50px;
+}
+
+#introduce h1 {
+    color: #66ccff;
+    font-size: xxx-large;
+    font-weight: bold;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#introduce h2 {
+    color: #0076ff;
+    font-size: xx-large;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+#introduce h3 {
+    color: #00d9ff;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+#introduce p {
+    font-size: x-large;
+}
+
+#introduce li {
+    font-size: x-large;
 }

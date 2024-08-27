@@ -3,7 +3,7 @@
 
 {% block content %}
     {% if form.error %}
-        <p>{% translate “You Username and Password didn't Match” %}</p>
+        <p>{% translate "You Username and Password didn't Match" %}</p>
     {% endif %}
     <div class="form-signin w-100 m-auto">
         <form method="post" action="{% url 'registration:login' %}">
@@ -16,7 +16,7 @@
                 <input class="form-control" id="floatingInput" placeholder="name" name="username" required>
                 <label for="floatingInput">{% translate 'Name' %}</label>
             </div>
-            <div class="form-floating">
+            <div class="form-floating my-3">
                 <input type="password" class="form-control" id="floatingPassword"
                        placeholder="Password" name="password" required>
                 <label for="floatingPassword">{% translate 'Password' %}</label>
@@ -24,6 +24,9 @@
             <button class="w-100 btn btn-lg btn-primary" type="submit">{% translate 'Login' %}</button>
             <input type="hidden" name="next" value="{% url 'TimeTrack:index' %}">
         </form>
+        <div class="my-5 d-flex justify-content-end">
+            <a href="{% url 'registration:register' %}" class="link-primary">{% translate "Don't have an account yet? Register one!" %}</a>
+        </div>
     </div>
 
 {% endblock %}

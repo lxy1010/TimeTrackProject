@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-21 15:30+0800\n"
+"POT-Creation-Date: 2024-08-27 12:13+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -178,9 +178,13 @@ msgstr ""
 "追踪，并确保每一步都引领您走向成功。精准的数据统计，直观的可视化，让时间成为"
 "您最大的财富。即刻加入TimeTrack，开启高效生活新篇章！"
 
-#: .\templates\TimeTrack\index.html:24 .\templates\TimeTrack\index.html:29
+#: .\templates\TimeTrack\index.html:24 .\templates\TimeTrack\index.html:30
 msgid "Get started"
 msgstr ""
+
+#: .\templates\TimeTrack\index.html:46
+msgid "Down"
+msgstr "-- 下滑 --"
 
 #: .\templates\TimeTrack\myDay.html:6
 msgid "My Day"
@@ -263,6 +267,10 @@ msgstr "选择"
 msgid "You have been logged out"
 msgstr "您已登出"
 
+#: .\templates\registration\login.html:6
+msgid "You Username and Password didn't Match"
+msgstr ""
+
 #: .\templates\registration\login.html:11
 msgid "Please Login"
 msgstr "请登录"
@@ -271,6 +279,10 @@ msgstr "请登录"
 #: .\templates\registration\register.html:44
 msgid "Password"
 msgstr "密码"
+
+#: .\templates\registration\login.html:28
+msgid "Don't have an account yet? Register one!"
+msgstr "还没有账户？注册一个！"
 
 #: .\templates\registration\register.html:31
 msgid "Please Register"

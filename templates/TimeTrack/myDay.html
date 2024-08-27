@@ -35,7 +35,7 @@
                             </strong>
                             <br>
                             {% translate 'from' %} {{ checkin.start }} {% translate 'to' %} {{ checkin.end }} --
-                            {% if not checkin.doneToday %}
+                            {% if not checkin.done %}
                                 <strong class="text-danger">{% translate 'Incomplete' %}</strong>
                             {% else %}
                                 <strong class="text-primary">{% translate 'Done' %}</strong>

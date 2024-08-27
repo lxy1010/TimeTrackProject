@@ -26,7 +26,8 @@
                 {% else %}
                     <div class="text-center text-md-left mt-5">
                         <a href="{% url 'TimeTrack:group' %}">
-                            <span class="btn btn-outline-primary btn-lg" style="font-size: xx-large">{% translate 'Get started' %}></span></a>
+                            <span class="btn btn-outline-primary btn-lg"
+                                  style="font-size: xx-large">{% translate 'Get started' %}></span></a>
                     </div>
                 {% endif %}
             </div>
@@ -38,6 +39,72 @@
                          class="img-fluid mw-md-120">
                 </figure>
             </div>
+        </div>
+        <div class="d-flex justify-content-center">
+            <a href="#introduce" class="nav-link">
+                <div class="d-flex flex-column align-items-center border-3 border-light">
+                    <img width="80px" height="80px" src="{% static 'TimeTrack/img/down.svg' %}" alt="down">
+                    <h2 class="m-5">{% trans 'Down' %}</h2>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div id="introduce" class="d-flex justify-content-center">
+        <div style="width: 85%; margin-top: 100px;">
+
+            <h1>欢迎踏入高效与秩序的殿堂 —— TimeTrack，您的全能代办管理伙伴！</h1>
+
+            <p>
+                在快节奏的现代生活中，时间成为了最宝贵的资源。为了帮助您更好地驾驭时间，实现工作与生活的完美平衡，我们精心打造了TimeTrack——一款集高效性、灵活性与个性化于一体的Web应用程序，旨在成为您日常任务管理和时间优化的得力助手。</p>
+
+            <h2>核心功能，重塑时间管理新体验</h2>
+
+            <h3>智能待办管理</h3>
+            <p>
+                告别杂乱无章的任务列表，TimeTrack让您以最简单的方式添加、编辑和删除待办事项。无论是紧急会议、项目截止还是日常琐事，都能轻松分类、设置优先级和提醒，确保每一项任务都能得到及时且有效的处理。</p>
+
+            <h3>灵活待办组构建</h3>
+            <p>
+                根据您的需求，自由创建待办组，将相关任务归类整理。无论是工作项目、学习计划还是生活琐事，都能一目了然，让您的思维更加清晰，行动更加有序。</p>
+
+            <h3>精准打卡记录</h3>
+            <p>
+                TimeTrack的打卡功能，让您轻松记录任务开始与结束的时间点，自动生成详细的工作日志。这不仅有助于您回顾工作历程，还能帮助您分析工作效率，持续优化工作习惯，实现自我提升。</p>
+
+            <h3>安全用户体系</h3>
+            <p>
+                我们深知用户信息安全的重要性，因此TimeTrack采用先进的加密技术，确保您的注册信息和账户安全无忧。一键登录，随时随地访问您的待办清单，让时间管理更加便捷。</p>
+
+            <h3>多语言支持</h3>
+            <p>
+                为了满足全球用户的需求，TimeTrack支持多种语言切换。无论您身处何地，都能以熟悉的语言享受时间管理的乐趣，让沟通无界限，效率再升级。</p>
+
+            <h3>高效番茄计时器</h3>
+            <p>
+                集成经典的番茄工作法，TimeTrack助您集中注意力，提高工作效率。自定义工作时间与休息时间，找到最适合自己的工作节奏，让每一分钟都充满价值。</p>
+
+            <h3>今日待办聚焦</h3>
+            <p>
+                首页即展示今日待办事项，让您一登录就能迅速进入工作状态。优先展示即将到期和紧急任务，确保重要事项得到及时处理，让您的每一天都充满成就感。</p>
+
+            <h3>直观日历视图</h3>
+            <p>
+                提供清晰的日历视图，让您从时间线上规划和管理任务。无论是长期规划还是短期安排，都能一目了然，帮助您更好地掌控时间，规划未来。</p>
+
+            <h2>为何选择TimeTrack？</h2>
+
+            <ul class="mb-5">
+                <li>高效便捷：简化繁琐的任务管理流程，让您专注于工作本身，提升整体效率。</li>
+                <li>个性化定制：支持根据个人习惯调整设置，打造专属于您的时间管理工具，让时间管理更加贴心。</li>
+                <li>数据安全：采用行业领先的数据加密技术，保障用户信息安全，让您使用无忧。</li>
+                <li>
+                    跨平台兼容：无论您是在电脑、平板还是手机上，都能流畅访问TimeTrack，随时随地管理待办事项，让时间管理无处不在。
+                </li>
+            </ul>
+
+            <p>
+                现在就加入TimeTrack的大家庭吧！让我们一起探索高效时间管理的无限可能，开启更加充实、有序和成功的生活新篇章！</p>
+
         </div>
     </div>
 {% endblock %}

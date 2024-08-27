@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-21 15:31+0800\n"
+"POT-Creation-Date: 2024-08-27 12:13+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -174,8 +174,12 @@ msgid ""
 "your most valuable asset. Join TimeTrack now and unlock your productive life!"
 msgstr ""
 
-#: .\templates\TimeTrack\index.html:24 .\templates\TimeTrack\index.html:29
+#: .\templates\TimeTrack\index.html:24 .\templates\TimeTrack\index.html:30
 msgid "Get started"
+msgstr ""
+
+#: .\templates\TimeTrack\index.html:46
+msgid "Down"
 msgstr ""
 
 #: .\templates\TimeTrack\myDay.html:6
@@ -259,6 +263,10 @@ msgstr ""
 msgid "You have been logged out"
 msgstr ""
 
+#: .\templates\registration\login.html:6
+msgid "You Username and Password didn't Match"
+msgstr ""
+
 #: .\templates\registration\login.html:11
 msgid "Please Login"
 msgstr ""
@@ -266,6 +274,10 @@ msgstr ""
 #: .\templates\registration\login.html:22
 #: .\templates\registration\register.html:44
 msgid "Password"
+msgstr ""
+
+#: .\templates\registration\login.html:28
+msgid "Don't have an account yet? Register one!"
 msgstr ""
 
 #: .\templates\registration\register.html:31
