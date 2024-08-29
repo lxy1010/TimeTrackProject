@@ -22,4 +22,6 @@ urlpatterns = [
     path('calendar', views.calendar, name='calendar'),
     path('pomodoro', views.pomodoro, name='pomodoro'),
     path('myDay', views.myDay, name='myDay'),
+    path('about', views.about, name='about'),
+    path('matrix', views.matrix, name='matrix')
 ]

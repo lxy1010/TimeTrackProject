@@ -1,6 +1,6 @@
 {% load i18n %}
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="zh-hans" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <title>TimeTrack | 拾光轨迹</title>
@@ -29,7 +29,10 @@
                     <a class="nav-link" href="{% url 'TimeTrack:checkin' %}" id="checkin">{% translate 'CheckIn' %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" id="about">{% translate 'About' %}</a>
+                    <a class="nav-link" href="{% url 'TimeTrack:matrix' %}" id="matrix">{% translate 'Matrix' %}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'TimeTrack:about' %}" id="about">{% translate 'About' %}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'registration:register' %}" id="register">{% translate 'Register' %}</a>

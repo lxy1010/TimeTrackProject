@@ -1,0 +1,58 @@
+{% extends 'TimeTrack/base.html' %}
+
+{% block content %}
+    <div class="d-flex flex-column justify-content-center">
+        <div class="text-center mx-auto my-1"
+             style="width: 75%; height: 20px; background-image: linear-gradient(to right, #3a78ff, #ff3c3c); border-radius: 10px">
+            <h4>Importance</h4>
+        </div>
+        <div class="d-flex mx-auto">
+            <div style="grid-template-columns: repeat(2, 1fr); width: 1000px;" class="container d-grid gap-1 mx-0">
+                <div style="min-height: 300px; background: rgba(65,193,113,0.5)"
+                     class="d-flex justify-content-center align-items-center">
+                    <div class="w-75 h-75">
+                        {% for t in matrix.0.0 %}
+                            <h3>{{ t }}</h3><p>{{ t.deadline }}</p>
+                        {% empty %}
+                            <h3>None</h3>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div style="min-height: 300px; background:rgba(195,72,72,0.5)"
+                     class="d-flex justify-content-center align-items-center">
+                    <div class="w-75 h-75">
+                        {% for t in matrix.0.1 %}
+                            <h3>{{ t }}</h3><p>{{ t.deadline }}</p>
+                        {% empty %}
+                            <h3>None</h3>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div style="min-height: 300px; background:rgba(236,219,83,0.5)"
+                     class="d-flex justify-content-center align-items-center">
+                    <div class="w-75 h-75">
+                        {% for t in matrix.1.0 %}
+                            <h3>{{ t }}</h3><p>{{ t.deadline }}</p>
+                        {% empty %}
+                            <h3>None</h3>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div style="min-height: 300px; background:rgba(59,101,190,0.5)"
+                     class="d-flex justify-content-center align-items-center">
+                    <div class="w-75 h-75">
+                        {% for t in matrix.1.1 %}
+                            <h3>{{ t }}</h3><p>{{ t.deadline }}</p>
+                        {% empty %}
+                            <h3>None</h3>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="text-center my-1"
+                 style="width: 20px; background-image: linear-gradient(to top, #3a78ff, #ff3c3c); border-radius: 10px">
+                <h4 style="writing-mode: vertical-lr">Urgency</h4>
+            </div>
+        </div>
+    </div>
+{% endblock %}

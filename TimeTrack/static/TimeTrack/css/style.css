@@ -29,6 +29,13 @@ body {
     filter: drop-shadow(0 0 25px #6f42c1);
 }
 
+#matrix:hover {
+    color: #d1df3b;
+    border-left: 3px solid;
+    transition: 0.3s;
+    filter: drop-shadow(0 0 25px #d1df3b);
+}
+
 #about:hover {
     color: #00dc82;
     border-left: 3px solid;

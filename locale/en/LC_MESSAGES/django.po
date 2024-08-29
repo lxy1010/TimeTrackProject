@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-27 12:13+0800\n"
+"POT-Creation-Date: 2024-08-29 17:15+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\templates\TimeTrack\Calendar.html:5 .\templates\TimeTrack\base.html:113
+#: .\templates\TimeTrack\Calendar.html:5 .\templates\TimeTrack\base.html:116
 msgid "Calendar"
 msgstr ""
 
@@ -34,43 +34,47 @@ msgid "CheckIn"
 msgstr ""
 
 #: .\templates\TimeTrack\base.html:32
-msgid "About"
+msgid "Matrix"
 msgstr ""
 
 #: .\templates\TimeTrack\base.html:35
+msgid "About"
+msgstr ""
+
+#: .\templates\TimeTrack\base.html:38
 #: .\templates\registration\register.html:57
 msgid "Register"
 msgstr ""
 
-#: .\templates\TimeTrack\base.html:38 .\templates\language\index.html:10
+#: .\templates\TimeTrack\base.html:41 .\templates\language\index.html:10
 msgid "Language"
 msgstr ""
 
-#: .\templates\TimeTrack\base.html:51
+#: .\templates\TimeTrack\base.html:54
 msgid "Not Logged In"
 msgstr ""
 
-#: .\templates\TimeTrack\base.html:59 .\templates\registration\login.html:24
+#: .\templates\TimeTrack\base.html:62 .\templates\registration\login.html:24
 msgid "Login"
 msgstr ""
 
-#: .\templates\TimeTrack\base.html:63
+#: .\templates\TimeTrack\base.html:66
 msgid "Logout"
 msgstr ""
 
-#: .\templates\TimeTrack\base.html:82
+#: .\templates\TimeTrack\base.html:85
 msgid "Todos"
 msgstr ""
 
-#: .\templates\TimeTrack\base.html:89
+#: .\templates\TimeTrack\base.html:92
 msgid "Groups"
 msgstr ""
 
-#: .\templates\TimeTrack\base.html:97 .\templates\TimeTrack\pomodoro.html:5
+#: .\templates\TimeTrack\base.html:100 .\templates\TimeTrack\pomodoro.html:5
 msgid "Podoromo"
 msgstr ""
 
-#: .\templates\TimeTrack\base.html:105
+#: .\templates\TimeTrack\base.html:108
 msgid "MyDay"
 msgstr ""
 
@@ -178,7 +182,7 @@ msgstr ""
 msgid "Get started"
 msgstr ""
 
-#: .\templates\TimeTrack\index.html:46
+#: .\templates\TimeTrack\index.html:47
 msgid "Down"
 msgstr ""
 

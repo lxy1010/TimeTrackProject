@@ -14,6 +14,10 @@ def index(request):
     return render(request, 'TimeTrack/index.html')
 
 
+def about(request):
+    return render(request, 'TimeTrack/about.html')
+
+
 @login_required
 def group(request):
     group = Group.objects.filter(owner=request.user)
@@ -196,3 +200,35 @@ def calendar(request):
     context = {'today': now.strftime('%B'), 'days': days}
 
     return render(request, 'TimeTrack/Calendar.html', context=context)
+
+
+def matrix(request):
+    """
+    imp  pre
+     - + | + +
+    -----+------
+     - - | + -
+    """
+    group = Group.objects.filter(owner=request.user)
+    pre = []
+    unp = []
+    for g in group:
+        for todo in g.todo_set.all():
+            if todo.deadline < timezone.now():
+                todo.is_expired = True
+            else:
+                todo.is_expired = False
+            todo.save()
+
+            now = timezone.now()
+            now_24 = now + timedelta(days=1)
+            if todo.deadline > now_24:
+                unp.append(todo)
+            else:
+                pre.append(todo)
+
+    matrix = [[[t for t in pre if t.importance <= 0], [t for t in pre if t.importance > 0]],
+              [[t for t in unp if t.importance <= 0], [t for t in unp if t.importance > 0]]]
+    context = {'matrix': matrix}
+
+    return render(request, 'TimeTrack/matrix.html', context=context)
